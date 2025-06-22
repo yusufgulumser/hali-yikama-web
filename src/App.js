@@ -15,8 +15,11 @@ const FAQ = () => <div style={{ padding: '2rem', textAlign: 'center', minHeight:
 const NotFound = () => <div style={{ padding: '2rem', textAlign: 'center', minHeight: '60vh' }}><h1>404 - Sayfa Bulunamadı</h1><p>Aradığınız sayfa mevcut değil.</p></div>;
 
 function App() {
+  // GitHub Pages için basename (production)
+  const basename = process.env.NODE_ENV === 'production' ? '/hali-yikama-web' : '';
+  
   return (
-    <Router>
+    <Router basename={basename}>
       <ScrollToTop />
       <Layout>
         <Routes>
