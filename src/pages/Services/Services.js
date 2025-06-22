@@ -1,9 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import styles from './Services.module.css';
 
 const Services = () => {
   const [visibleSections, setVisibleSections] = useState(new Set());
+
+  // Animation variants for framer motion
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
 
   useEffect(() => {
     const observerOptions = {
@@ -180,29 +204,37 @@ const Services = () => {
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className="container">
-          <div className={styles.heroContent}>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className={styles.heroContent}
+          >
             <h1 className={styles.heroTitle}>Profesyonel Temizlik Hizmetlerimiz</h1>
             <p className={styles.heroSubtitle}>
               Halı, koltuk, yatak ve perdeleriniz için kapsamlı ve güvenilir temizlik çözümleri sunuyoruz. 
               10+ yıllık deneyimimizle kaliteli hizmet garantisi veriyoruz.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Services Grid Section */}
-      <section 
-        className={`${styles.servicesSection} section`}
-        id="services-grid"
-        data-animate
-      >
+      <section className={styles.servicesSection}>
         <div className="container">
-          <div className={`${styles.servicesGrid} ${isVisible('services-grid') ? 'fade-in visible' : 'fade-in'}`}>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className={styles.servicesGrid}
+          >
             {services.map((service, index) => (
-              <div 
+              <motion.div 
                 key={service.id} 
-                className={`${styles.serviceCard} card`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                variants={cardVariants}
+                whileHover={{ scale: 1.02, y: -5 }}
+                whileTap={{ scale: 0.98 }}
+                className={styles.serviceCard}
               >
                 <div className={styles.serviceHeader}>
                   <div 
@@ -249,17 +281,17 @@ const Services = () => {
                   <div className={styles.servicePrice}>
                     <span className={styles.priceLabel}>Başlangıç</span>
                     <span className={styles.priceValue}>
-                      {service.id === 1 ? '₺60/m²' : 
-                       service.id === 2 ? '₺150/adet' : 
-                       service.id === 3 ? '₺200/adet' : 
-                       service.id === 4 ? '₺40/m²' : 
-                       service.id === 5 ? '₺130/adet' : '₺90/adet'}
+                      {service.id === 1 ? '₺80/m²' :
+                       service.id === 2 ? '₺800/takım' : 
+                       service.id === 3 ? '₺500/adet' : 
+                       service.id === 4 ? '₺100/m²' : 
+                       service.id === 5 ? '₺300/adet' : '₺400/adet'}
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -293,7 +325,7 @@ const Services = () => {
               { icon: '🏆', title: '15+ Yıl Deneyim', desc: 'Sektördeki uzun yıllarımızla kazandığımız deneyimi hizmetinizde', badge: 'Uzman Ekip' },
               { icon: '🚚', title: 'Ücretsiz Alma-Teslim', desc: 'Evinizden alıp temizlik sonrası geri getiriyoruz', badge: 'Bedava Hizmet' },
               { icon: '🛡️', title: 'Hasar Garantisi', desc: 'Tüm işlemlerimizde %100 hasar garantisi sunuyoruz', badge: '%100 Güvence' },
-              { icon: '⚡', title: 'Hızlı Teslimat', desc: '48-72 saat içinde temizlenmiş ürünlerinizi teslim ediyoruz', badge: '2-3 Gün' },
+              { icon: '⚡', title: 'Hızlı Teslimat', desc: '1 hafta içinde temizlenmiş ürünlerinizi teslim ediyoruz', badge: '1 Hafta' },
               { icon: '🌿', title: 'Ekolojik Ürünler', desc: 'Çevre ve sağlık dostu temizlik malzemeleri kullanıyoruz', badge: 'Çevre Dostu' },
               { icon: '💯', title: 'Memnuniyet Garantisi', desc: '%99.8 müşteri memnuniyeti ile hizmet veriyoruz', badge: 'Kalite Taahhüdü' }
             ].map((reason, index) => (

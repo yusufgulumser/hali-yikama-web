@@ -170,6 +170,51 @@
   right: 0;
 }
 
+/* Close Button */
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  z-index: 1002;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.closeIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.closeIcon span {
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-normal);
+}
+
+.closeIcon span:nth-child(1) {
+  top: 11px;
+  transform: rotate(45deg);
+}
+
+.closeIcon span:nth-child(2) {
+  top: 11px;
+  transform: rotate(-45deg);
+}
+
 .mobileNavLinks {
   list-style: none;
   padding: 0;
@@ -239,10 +284,108 @@
   .mobileMenuBtn {
     display: block;
     z-index: 1001;
+    padding: var(--spacing-md);
   }
   
   .nav {
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-lg) 0;
+    min-height: 70px;
+  }
+  
+  .logo {
+    font-size: var(--font-size-xl);
+  }
+
+  .logoImage {
+    width: 45px;
+    height: 45px;
+  }
+
+  .mobileMenu {
+    padding-top: 90px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    right: 0;
+  }
+  
+  .mobileMenu.open {
+    transform: translateX(0);
+  }
+  
+  .closeButton {
+    top: 25px;
+    right: 25px;
+    padding: var(--spacing-md);
+  }
+  
+  .closeIcon {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .closeIcon span {
+    width: 26px;
+    height: 3px;
+  }
+  
+  .closeIcon span:nth-child(1) {
+    top: 12px;
+  }
+
+  .closeIcon span:nth-child(2) {
+    top: 12px;
+  }
+
+  .mobileNavLinks a {
+    padding: var(--spacing-xl) var(--spacing-2xl);
+    font-size: var(--font-size-lg);
+  }
+  
+  .hamburger {
+    width: 28px;
+    height: 22px;
+  }
+  
+  .hamburger span {
+    height: 3px;
+  }
+  
+  .hamburger span:nth-child(1) {
+    top: 0;
+  }
+
+  .hamburger span:nth-child(2) {
+    top: 10px;
+  }
+
+  .hamburger span:nth-child(3) {
+    top: 20px;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobileMenu {
+    width: 100vw;
+    transform: translateX(100%);
+  }
+  
+  .mobileMenu.open {
+    transform: translateX(0);
+  }
+
+  .nav {
+    padding: var(--spacing-md) 0;
+    min-height: 65px;
   }
   
   .logo {
@@ -250,50 +393,42 @@
   }
 
   .logoImage {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
   }
-
-  .mobileMenu {
-    padding-top: 70px;
+  
+  .closeButton {
+    top: 20px;
+    right: 20px;
+    padding: var(--spacing-sm);
+  }
+  
+  .closeIcon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .closeIcon span {
+    width: 24px;
+    height: 2.5px;
+  }
+  
+  .closeIcon span:nth-child(1),
+  .closeIcon span:nth-child(2) {
+    top: 11px;
   }
 
   .mobileNavLinks a {
     padding: var(--spacing-lg) var(--spacing-xl);
     font-size: var(--font-size-md);
   }
-}
-
-@media (max-width: 480px) {
-  .mobileMenu {
-    width: 100vw;
-    right: -100vw;
-  }
-  
-  .mobileMenu.open {
-    right: 0;
-  }
-
-  .nav {
-    padding: var(--spacing-xs) 0;
-  }
-  
-  .logo {
-    font-size: var(--font-size-md);
-  }
-
-  .logoImage {
-    width: 30px;
-    height: 30px;
-  }
-
-  .mobileNavLinks a {
-    padding: var(--spacing-md) var(--spacing-lg);
-    font-size: var(--font-size-sm);
-  }
 
   .hamburger {
-    width: 22px;
-    height: 16px;
+    width: 26px;
+    height: 20px;
+  }
+  
+  .hamburger span {
+    height: 2.5px;
   }
 } 

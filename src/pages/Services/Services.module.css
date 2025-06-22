@@ -5,59 +5,41 @@
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-  color: var(--text-white);
-  padding: var(--spacing-3xl) 0;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 60%);
-  animation: heroFloat 15s ease-in-out infinite;
-}
-
-@keyframes heroFloat {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-  }
-  33% {
-    transform: scale(1.1) rotate(1deg);
-  }
-  66% {
-    transform: scale(0.9) rotate(-1deg);
-  }
-}
-
 .heroContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(168, 85, 247, 0.05));
+  padding: 3rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(59, 130, 246, 0.1);
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 .heroTitle {
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-lg);
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
   line-height: var(--line-height-tight);
 }
 
 .heroSubtitle {
-  font-size: var(--font-size-lg);
-  line-height: var(--line-height-relaxed);
-  opacity: 0.9;
-  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* Services Section */
@@ -909,12 +891,21 @@
 
 /* Mobile Responsive (max-width: 768px) */
 @media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .heroContent {
+    padding: 2rem;
+    border-radius: 1.5rem;
+  }
+
   .heroTitle {
-    font-size: var(--font-size-2xl);
+    font-size: 2.5rem;
   }
   
   .heroSubtitle {
-    font-size: var(--font-size-md);
+    font-size: 1.1rem;
   }
   
   .servicesGrid {
@@ -1052,6 +1043,23 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .heroContent {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
   .servicesGrid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);

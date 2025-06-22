@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import styles from './Prices.module.css';
 
 const Prices = () => {
@@ -37,35 +38,33 @@ const Prices = () => {
       category: 'Halı Temizliği',
       icon: '🏠',
       services: [
-        { name: 'Makina Halısı', price: '₺60', unit: 'm²', description: 'Standard makina halısı temizliği' },
-        { name: 'Makina Yün Halı', price: '₺75', unit: 'm²', description: 'Makina dokuma yün halı temizliği' },
-        { name: 'Yün Halı', price: '₺85', unit: 'm²', description: 'Yün halı özel bakım' },
-        { name: 'El Halısı', price: '₺110', unit: 'm²', description: 'El dokuması halı özel temizliği' },
-        { name: 'Bambu Halı', price: '₺75', unit: 'm²', description: 'Doğal bambu halı bakımı' },
-        { name: 'Shaggy Halı', price: '₺80', unit: 'm²', description: 'Uzun tüylü shaggy halı temizliği' },
-        { name: 'Akrilik Halı', price: '₺70', unit: 'm²', description: 'Sentetik akrilik halı temizliği' }
+        { name: 'Makina Halısı', price: '₺80', unit: 'm²', description: 'Standard makina halısı temizliği' },
+        { name: 'Makina Yün Halı', price: '₺90', unit: 'm²', description: 'Makina dokuma yün halı temizliği' },
+        { name: 'Yün Halı', price: '₺200', unit: 'm²', description: 'Yün halı özel bakım' },
+        { name: 'El Halısı', price: '₺200', unit: 'm²', description: 'El dokuması halı özel temizliği' },
+        { name: 'Bambu Halı', price: '₺200', unit: 'm²', description: 'Doğal bambu halı bakımı' },
+        { name: 'Shaggy Halı', price: '₺90', unit: 'm²', description: 'Uzun tüylü shaggy halı temizliği' },
+        { name: 'Akrilik Halı', price: '₺100', unit: 'm²', description: 'Sentetik akrilik halı temizliği' }
       ]
     },
     {
       category: 'Ev Eşyaları',
       icon: '🛋️',
       services: [
-        { name: 'Koltuk Takımı', price: '₺300', unit: 'takım', description: '3+2+1 koltuk takımı temizliği' },
-        { name: 'Tekli Koltuk', price: '₺120', unit: 'adet', description: 'Tekli koltuk/berjer temizliği' },
+        { name: 'Koltuk Takımı', price: '₺800', unit: 'takım', description: '3+2+1 koltuk takımı temizliği' },
+        { name: 'Tekli Koltuk', price: '₺200', unit: 'adet', description: 'Tekli koltuk/berjer temizliği' },
         { name: 'Stor Perde', price: '₺100', unit: 'm²', description: 'Tüm stor perde türleri' },
-        { name: 'Yatak (Tek)', price: '₺150', unit: 'adet', description: 'Tek kişilik yatak temizliği' },
-        { name: 'Yatak (Çift)', price: '₺200', unit: 'adet', description: 'Çift kişilik yatak temizliği' }
+        { name: 'Yatak (Tek)', price: '₺500', unit: 'adet', description: 'Tek kişilik yatak temizliği' },
+        { name: 'Yatak (Çift)', price: '₺800', unit: 'adet', description: 'Çift kişilik yatak temizliği' }
       ]
     },
     {
       category: 'Yorgan & Battaniye',
       icon: '🛌',
       services: [
-        { name: 'Yorgan (Tek)', price: '₺130', unit: 'adet', description: 'Tek kişilik yorgan temizliği' },
-        { name: 'Yorgan (Çift)', price: '₺160', unit: 'adet', description: 'Çift kişilik yorgan temizliği' },
-        { name: 'Battaniye', price: '₺90', unit: 'adet', description: 'Standard battaniye temizliği' },
-        { name: 'Yün Battaniye', price: '₺120', unit: 'adet', description: 'Yün battaniye özel bakım' },
-        { name: 'Nevresim Takımı', price: '₺80', unit: 'takım', description: 'Nevresim takımı yıkama' }
+        { name: 'Yorgan (Tek)', price: '₺300', unit: 'adet', description: 'Tek kişilik yorgan temizliği' },
+        { name: 'Yorgan (Çift)', price: '₺500', unit: 'adet', description: 'Çift kişilik yorgan temizliği' },
+        { name: 'Battaniye', price: '₺400', unit: 'adet', description: 'Standard battaniye temizliği' }
       ]
     }
   ];
@@ -75,18 +74,21 @@ const Prices = () => {
   const isVisible = (sectionId) => visibleSections.has(sectionId);
 
   const serviceOptions = [
-    { value: 'makina-hali', label: 'Makina Halısı', price: 60, unit: 'm²' },
-    { value: 'makina-yun-hali', label: 'Makina Yün Halı', price: 75, unit: 'm²' },
-    { value: 'yun-hali', label: 'Yün Halı', price: 85, unit: 'm²' },
-    { value: 'el-hali', label: 'El Halısı', price: 110, unit: 'm²' },
-    { value: 'bambu-hali', label: 'Bambu Halı', price: 75, unit: 'm²' },
-    { value: 'shaggy-hali', label: 'Shaggy Halı', price: 80, unit: 'm²' },
-    { value: 'akrilik-hali', label: 'Akrilik Halı', price: 70, unit: 'm²' },
-    { value: 'koltuk-temizligi', label: 'Koltuk Temizliği', price: 150, unit: 'adet' },
-    { value: 'yatak-temizligi', label: 'Yatak Temizliği', price: 175, unit: 'adet' },
+    { value: 'makina-hali', label: 'Makina Halısı', price: 80, unit: 'm²' },
+    { value: 'makina-yun-hali', label: 'Makina Yün Halı', price: 90, unit: 'm²' },
+    { value: 'yun-hali', label: 'Yün Halı', price: 200, unit: 'm²' },
+    { value: 'el-hali', label: 'El Halısı', price: 200, unit: 'm²' },
+    { value: 'bambu-hali', label: 'Bambu Halı', price: 200, unit: 'm²' },
+    { value: 'shaggy-hali', label: 'Shaggy Halı', price: 90, unit: 'm²' },
+    { value: 'akrilik-hali', label: 'Akrilik Halı', price: 100, unit: 'm²' },
+    { value: 'koltuk-takimi', label: 'Koltuk Takımı', price: 800, unit: 'takım' },
+    { value: 'tekli-koltuk', label: 'Tekli Koltuk', price: 200, unit: 'adet' },
+    { value: 'yatak-tek', label: 'Yatak (Tek)', price: 500, unit: 'adet' },
+    { value: 'yatak-cift', label: 'Yatak (Çift)', price: 800, unit: 'adet' },
     { value: 'stor-perde-temizligi', label: 'Stor Perde Temizliği', price: 100, unit: 'm²' },
-    { value: 'yorgan-temizligi', label: 'Yorgan Temizliği', price: 130, unit: 'adet' },
-    { value: 'battaniye-temizligi', label: 'Battaniye Temizliği', price: 90, unit: 'adet' }
+    { value: 'yorgan-tek', label: 'Yorgan (Tek)', price: 300, unit: 'adet' },
+    { value: 'yorgan-cift', label: 'Yorgan (Çift)', price: 500, unit: 'adet' },
+    { value: 'battaniye-temizligi', label: 'Battaniye Temizliği', price: 400, unit: 'adet' }
   ];
 
   const calculatePrice = () => {
@@ -166,71 +168,21 @@ const Prices = () => {
     setTotalPrice(0);
   };
 
+
+
   return (
-    <div className={styles.prices}>
-      {/* Modern Hero Section */}
-      <section className={styles.modernHero}>
-        <div className="container">
-          <div className={styles.heroContent}>
-            <div className={styles.heroLeft}>
-              <span className={styles.heroBadge}>💰 Fiyat Listesi</span>
-              <h1 className={styles.heroTitle}>Şeffaf Fiyatlandırma ile Kaliteli Hizmet</h1>
-              <p className={styles.heroSubtitle}>
-                15+ yıllık deneyimimizle halı, koltuk, yatak ve perdelerinize özel bakım sunuyoruz. Tüm fiyatlarımız KDV dahil, 
-                gizli ücret yoktur. Ücretsiz keşif hizmeti ile kesin fiyat öğrenin.
-              </p>
-              <div className={styles.heroFeatures}>
-                {[
-                  { icon: '💯', title: 'Şeffaf Fiyat', desc: 'Gizli ücret yok' },
-                  { icon: '🚚', title: 'Ücretsiz Taşıma', desc: 'Alma-teslim bedava' },
-                  { icon: '🛡️', title: 'Hasar Garantisi', desc: '%100 güvence' },
-                  { icon: '⚡', title: 'Hızlı Teslimat', desc: '48-72 saat' }
-                ].map((feature, index) => (
-                  <div key={index} className={styles.heroFeature} style={{ '--i': index }}>
-                    <div className={styles.featureIconWrapper}>
-                      <span className={styles.featureIcon}>{feature.icon}</span>
-                    </div>
-                    <div className={styles.featureContent}>
-                      <h4>{feature.title}</h4>
-                      <p>{feature.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className={styles.heroRight}>
-              <div className={styles.priceHighlight}>
-                <div className={styles.highlightHeader}>
-                  <h3>Popüler Hizmetler</h3>
-                  <span className={styles.highlightBadge}>En Çok Tercih Edilen</span>
-                </div>
-                <div className={styles.highlightServices}>
-                  {[
-                    { name: 'Halı Temizliği', price: '₺60', unit: 'm²', popular: true },
-                    { name: 'Koltuk Temizliği', price: '₺150', unit: 'adet', popular: true },
-                    { name: 'Yatak Temizliği', price: '₺200', unit: 'adet', popular: false },
-                    { name: 'Perde Temizliği', price: '₺40', unit: 'm²', popular: false }
-                  ].map((service, index) => (
-                    <div key={index} className={`${styles.highlightService} ${service.popular ? styles.popular : ''}`}>
-                      <div className={styles.serviceLeft}>
-                        <span className={styles.serviceName}>{service.name}</span>
-                        {service.popular && <span className={styles.popularTag}>⭐</span>}
-                      </div>
-                      <div className={styles.serviceRight}>
-                        <span className={styles.servicePrice}>{service.price}</span>
-                        <span className={styles.serviceUnit}>/{service.unit}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className={styles.highlightNote}>
-                  <small>✨ 30 m² üzeri siparişlerde %10 indirim!</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className={styles.pricesContainer}>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className={styles.header}
+      >
+        <h1>Şeffaf Fiyatlandırma ile Kaliteli Hizmet</h1>
+        <p>15+ yıllık deneyimimizle halı, koltuk, yatak ve perdelerinize özel bakım sunuyoruz. Güvenilir hizmet, adil fiyat.</p>
+      </motion.div>
+
+
 
       {/* Modern Price Tables Section */}
       <section 
@@ -419,7 +371,7 @@ const Prices = () => {
                   <p>Halı türünü belirlemekte zorlanıyorsanız bize WhatsApp'tan fotoğraf gönderin!</p>
                 </div>
                 <div className={styles.helpActions}>
-                  <a href="https://wa.me/905551234567" target="_blank" rel="noopener noreferrer" className={styles.whatsappBtn}>
+                  <a href="https://wa.me/905313842496" target="_blank" rel="noopener noreferrer" className={styles.whatsappBtn}>
                     <span>📷</span>
                     <span>WhatsApp'tan Fotoğraf Gönder</span>
                   </a>
@@ -443,9 +395,9 @@ const Prices = () => {
                     <span>İletişim Formu</span>
                     <span className={styles.btnArrow}>→</span>
                   </Link>
-                  <a href="tel:+905551234567" className={styles.phoneBtn}>
+                                  <a href="tel:+905313842496" className={styles.phoneBtn}>
                     <span>📞</span>
-                    <span>0555 123 45 67</span>
+                      <span>0531 384 2496</span>
                   </a>
                 </div>
                 <div className={styles.contactNote}>
@@ -463,7 +415,7 @@ const Prices = () => {
                   {[
                     { icon: '🦠', title: 'Antibakteriyel İşlem', desc: 'Hijyenik temizlik garantisi' },
                     { icon: '🛡️', title: '%100 Hasar Garantisi', desc: 'Hasar durumunda tazminat' },
-                    { icon: '⚡', title: '48-72 Saat Teslimat', desc: 'Hızlı ve güvenilir servis' },
+                    { icon: '⚡', title: '1 Hafta Teslimat', desc: 'Hızlı ve güvenilir servis' },
                     { icon: '👨‍💼', title: 'Uzman Ekip', desc: '15+ yıl deneyimli personel' }
                   ].map((guarantee, index) => (
                     <div key={index} className={styles.guaranteeItem} style={{ '--i': index }}>

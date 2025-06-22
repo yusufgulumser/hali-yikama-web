@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 
@@ -6,6 +6,9 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const mobileMenuRef = useRef(null);
+  const touchStartRef = useRef(null);
+  const touchEndRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +18,47 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Touch event handlers for swipe functionality
+  const handleTouchStart = (e) => {
+    touchStartRef.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndRef.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartRef.current || !touchEndRef.current) return;
+    
+    const distance = touchStartRef.current - touchEndRef.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && isMobileMenuOpen) {
+      closeMobileMenu();
+    } else if (isRightSwipe && !isMobileMenuOpen) {
+      setIsMobileMenuOpen(true);
+    }
+    
+    touchStartRef.current = null;
+    touchEndRef.current = null;
+  };
+
+  useEffect(() => {
+    const mobileMenu = mobileMenuRef.current;
+    if (!mobileMenu) return;
+
+    mobileMenu.addEventListener('touchstart', handleTouchStart);
+    mobileMenu.addEventListener('touchmove', handleTouchMove);
+    mobileMenu.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      mobileMenu.removeEventListener('touchstart', handleTouchStart);
+      mobileMenu.removeEventListener('touchmove', handleTouchMove);
+      mobileMenu.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [isMobileMenuOpen]);
 
   const isActive = (path) => {
     return location.pathname === path;
@@ -66,6 +110,14 @@ const Header = () => {
             </li>
             <li>
               <Link 
+                to="/service-areas" 
+                className={isActive('/service-areas') ? styles.active : ''}
+              >
+                Hizmet Bölgeleri
+              </Link>
+            </li>
+            <li>
+              <Link 
                 to="/about" 
                 className={isActive('/about') ? styles.active : ''}
               >
@@ -96,7 +148,22 @@ const Header = () => {
           </button>
 
           {/* Mobile Navigation */}
-          <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
+          <div 
+            ref={mobileMenuRef}
+            className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}
+          >
+            {/* Close Button */}
+            <button 
+              className={styles.closeButton}
+              onClick={closeMobileMenu}
+              aria-label="Menüyü Kapat"
+            >
+              <span className={styles.closeIcon}>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+            
             <ul className={styles.mobileNavLinks}>
               <li>
                 <Link 
@@ -123,6 +190,15 @@ const Header = () => {
                   onClick={closeMobileMenu}
                 >
                   Puf Noktalar
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/service-areas" 
+                  className={isActive('/service-areas') ? styles.active : ''}
+                  onClick={closeMobileMenu}
+                >
+                  Hizmet Bölgeleri
                 </Link>
               </li>
               <li>

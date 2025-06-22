@@ -72,13 +72,7 @@ const Home = () => {
     return () => clearInterval(slideInterval);
   }, [heroSlides.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  };
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -161,13 +155,7 @@ const Home = () => {
             </div>
           ))}
           
-          {/* Slider Controls */}
-          <button className={styles.sliderArrow} onClick={prevSlide} aria-label="Önceki">
-            <i className="fas fa-chevron-left"></i>
-          </button>
-          <button className={`${styles.sliderArrow} ${styles.sliderArrowRight}`} onClick={nextSlide} aria-label="Sonraki">
-            <i className="fas fa-chevron-right"></i>
-          </button>
+
           
           {/* Slider Dots */}
           <div className={styles.sliderDots}>

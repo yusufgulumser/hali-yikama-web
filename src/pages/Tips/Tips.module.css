@@ -1,70 +1,232 @@
 .tipsContainer {
   padding: 4rem 2rem;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
 }
 
 .header {
   text-align: center;
   margin-bottom: 4rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(168, 85, 247, 0.05));
+  padding: 3rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .header h1 {
-  color: var(--primary-color);
-  font-size: 2.5rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
+  font-weight: 900;
   margin-bottom: 1rem;
 }
 
 .header p {
   color: var(--text-secondary);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .tipsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .tipCard {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1));
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tipCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   transition: all 0.3s ease;
 }
 
+.tipHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
 .tipIcon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
+  font-size: 3rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.1));
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.categoryBadge {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .tipCard h3 {
-  color: var(--primary-color);
+  color: var(--text-primary);
   margin-bottom: 1rem;
-  font-size: 1.3rem;
-  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: left;
 }
 
 .tipCard p {
   color: var(--text-secondary);
-  line-height: 1.6;
-  text-align: center;
+  line-height: 1.7;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* Kategori renkleri */
+.koruma {
+  border-left: 4px solid #22c55e;
+}
+
+.koruma .categoryBadge {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.bakım {
+  border-left: 4px solid #3b82f6;
+}
+
+.acil {
+  border-left: 4px solid #ef4444;
+}
+
+.acil .categoryBadge {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.sağlık {
+  border-left: 4px solid #8b5cf6;
+}
+
+.sağlık .categoryBadge {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.önemli {
+  border-left: 4px solid #f59e0b;
+}
+
+.önemli .categoryBadge {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.tipCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.tipCard:hover .tipIcon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(168, 85, 247, 0.2));
 }
 
 .disclaimer {
   text-align: center;
-  margin-top: 3rem;
-  padding: 1rem;
-  background: rgba(76, 175, 80, 0.1);
-  border-radius: 10px;
+  margin-top: 4rem;
 }
 
-.disclaimer p {
+.disclaimerCard {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(168, 85, 247, 0.08));
+  padding: 3rem;
+  border-radius: 2rem;
+  border: 2px solid rgba(59, 130, 246, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.disclaimerCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f59e0b);
+}
+
+.disclaimerCard h3 {
+  color: var(--text-primary);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.disclaimerCard p {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactCall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.contactCall span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.contactCall a {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.contactCall a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -72,15 +234,93 @@
     padding: 2rem 1rem;
   }
 
+  .header {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
   .header h1 {
+    font-size: 2.2rem;
+  }
+
+  .header p {
+    font-size: 1.1rem;
+  }
+
+  .tipsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tipCard {
+    padding: 2rem;
+  }
+
+  .tipHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tipIcon {
+    width: 60px;
+    height: 60px;
     font-size: 2rem;
+  }
+
+  .disclaimerCard {
+    padding: 2rem;
+  }
+
+  .contactCall {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contactCall a {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tipsContainer {
+    padding: 1rem 0.5rem;
+  }
+
+  .header {
+    padding: 1.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
   }
 
   .header p {
     font-size: 1rem;
   }
 
-  .tipsGrid {
-    grid-template-columns: 1fr;
+  .tipCard {
+    padding: 1.5rem;
+  }
+
+  .tipCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .tipCard p {
+    font-size: 0.9rem;
+  }
+
+  .disclaimerCard {
+    padding: 1.5rem;
+  }
+
+  .disclaimerCard h3 {
+    font-size: 1.3rem;
+  }
+
+  .disclaimerCard p {
+    font-size: 1rem;
   }
 } 
