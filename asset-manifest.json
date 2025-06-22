@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/hali-yikama-web/static/css/main.72b0cae6.css",
-    "main.js": "/hali-yikama-web/static/js/main.376e2d21.js",
+    "main.js": "/hali-yikama-web/static/js/main.baa62202.js",
     "static/js/453.cdbc6886.chunk.js": "/hali-yikama-web/static/js/453.cdbc6886.chunk.js",
     "index.html": "/hali-yikama-web/index.html",
     "main.72b0cae6.css.map": "/hali-yikama-web/static/css/main.72b0cae6.css.map",
-    "main.376e2d21.js.map": "/hali-yikama-web/static/js/main.376e2d21.js.map",
+    "main.baa62202.js.map": "/hali-yikama-web/static/js/main.baa62202.js.map",
     "453.cdbc6886.chunk.js.map": "/hali-yikama-web/static/js/453.cdbc6886.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.72b0cae6.css",
-    "static/js/main.376e2d21.js"
+    "static/js/main.baa62202.js"
   ]
 }
