@@ -33,7 +33,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className={styles.companySection}>
             <div className={styles.logo}>
-              <img src="/images/logo.jpg" alt="Gülümser Halı Yıkama" className={styles.logoImage} />
+              <img src={`${process.env.PUBLIC_URL}/images/logo.jpg`} alt="Gülümser Halı Yıkama" className={styles.logoImage} />
               <div className={styles.logoContent}>
                 <h3 className={styles.logoText}>Gülümser</h3>
                 <span className={styles.logoSubtext}>Halı Yıkama</span>

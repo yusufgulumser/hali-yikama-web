@@ -34,7 +34,7 @@ const Home = () => {
       title: "Gülümser Halı Yıkama",
       subtitle: "Profesyonel Temizlik Hizmeti",
       description: "15+ yıllık deneyimle İstanbul'un en güvenilir halı yıkama markası. Modern teknoloji ve uzman ekibimizle halı, koltuk, yatak ve perdelerinizi en temiz haline getiriyoruz.",
-      image: "/images/carpet-cleaning.jpeg",
+      image: `${process.env.PUBLIC_URL}/images/carpet-cleaning.jpeg`,
       cta: "Hemen Teklif Alın"
     },
     {
@@ -42,7 +42,7 @@ const Home = () => {
       title: "Premium Koltuk Temizliği",
       subtitle: "Koltuklarınızı Yenileyin",
       description: "Özel temizlik teknikleriyle koltuklarınızı ilk günkü gibi tertemiz yapıyoruz. Kumaş türüne özel bakım ve koruma sağlıyoruz.",
-      image: "/images/sofa-cleaning.jpg",
+      image: `${process.env.PUBLIC_URL}/images/sofa-cleaning.jpg`,
       cta: "Keşfet"
     },
     {
@@ -50,7 +50,7 @@ const Home = () => {
       title: "Hijyenik Yatak Temizliği",
       subtitle: "Sağlıklı Uyku İçin",
       description: "Yataklarınızdaki toz akarları, bakteriler ve alerjenleri tamamen temizliyoruz. UV sterilizasyon ile %99.9 hijyen garantisi.",
-      image: "/images/mattress-cleaning.jpg",
+      image: `${process.env.PUBLIC_URL}/images/mattress-cleaning.jpg`,
       cta: "Sipariş Ver"
     },
     {
@@ -58,7 +58,7 @@ const Home = () => {
       title: "Profesyonel Perde Bakımı",
       subtitle: "Evinizin Zarafeti",
       description: "Tüm perde türleri için özel bakım hizmeti. Perdelerinizin parlaklığını ve güzelliğini koruyarak ömrünü uzatıyoruz.",
-      image: "/images/curtain-cleaning.jpg",
+      image: `${process.env.PUBLIC_URL}/images/curtain-cleaning.jpg`,
       cta: "İletişim"
     }
   ];
@@ -90,42 +90,42 @@ const Home = () => {
       title: 'Halı Temizliği',
       description: 'Halılarınızı derinlemesine temizleyerek yenileyin',
       icon: '🏠',
-      image: '/images/carpet-cleaning.jpeg'
+      image: `${process.env.PUBLIC_URL}/images/carpet-cleaning.jpeg`
     },
     {
       id: 2,
       title: 'Koltuk Temizliği',
       description: 'Koltuklarınızı hayata döndürün',
       icon: '🛋️',
-      image: '/images/sofa-cleaning.jpg'
+      image: `${process.env.PUBLIC_URL}/images/sofa-cleaning.jpg`
     },
     {
       id: 3,
       title: 'Yatak Temizliği',
       description: 'Rahat bir uyku için yataklarınızı temizleyin',
       icon: '🛏️',
-      image: '/images/mattress-cleaning.jpg'
+      image: `${process.env.PUBLIC_URL}/images/mattress-cleaning.jpg`
     },
     {
       id: 4,
       title: 'Perde Temizliği',
       description: 'Perdelerinizi yenileyin',
       icon: '🪟',
-      image: '/images/curtain-cleaning.jpg'
+      image: `${process.env.PUBLIC_URL}/images/curtain-cleaning.jpg`
     },
     {
       id: 5,
       title: 'Yorgan Temizliği',
       description: 'Yorganlarınızı tertemiz tutun',
       icon: '🛌',
-      image: '/images/duvet-cleaning.jpg'
+      image: `${process.env.PUBLIC_URL}/images/duvet-cleaning.jpg`
     },
     {
       id: 6,
       title: 'Battaniye Temizliği',
       description: 'Battaniyelerinizin ömrünü uzatın',
       icon: '🧸',
-      image: '/images/blanket-cleaning.jpg'
+      image: `${process.env.PUBLIC_URL}/images/blanket-cleaning.jpg`
     }
   ];
 

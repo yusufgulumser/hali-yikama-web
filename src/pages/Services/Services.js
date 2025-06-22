@@ -33,7 +33,7 @@ const Services = () => {
       subtitle: 'Carpet Cleaning',
       description: 'Halılarınızı derinlemesine temizleyerek yenileyin. Halılarınızın her santimetresini titizlikle temizleyerek kir, leke ve alerjenleri ortadan kaldırıyoruz. Halılarınızın tazeliğini, canlılığını geri kazanmasını sağlıyoruz.',
       icon: '🏠',
-      image: '/images/carpet-cleaning.jpeg',
+      image: `${process.env.PUBLIC_URL}/images/carpet-cleaning.jpeg`,
       features: [
         'Makina halısı temizliği',
         'El dokuma halı bakımı',
@@ -57,7 +57,7 @@ const Services = () => {
       subtitle: 'Sofa Cleaning',
       description: 'Koltuklarınızı hayata döndürün. Uzmanlarımız, döşemelerinizdeki kir, leke ve kokuları gidermek için nazik ama etkili yöntemler kullanır. Koltuklarınızın sadece temiz olmasını değil, aynı zamanda orijinal yumuşaklık ve görünümüne geri dönmesini sağlıyoruz.',
       icon: '🛋️',
-      image: '/images/sofa-cleaning.jpg',
+      image: `${process.env.PUBLIC_URL}/images/sofa-cleaning.jpg`,
       features: [
         'Kumaş koltuk temizliği',
         'Deri koltuk bakımı',
@@ -81,7 +81,7 @@ const Services = () => {
       subtitle: 'Mattress Cleaning',
       description: 'Rahat bir uyku için yataklarınızı temizleyin. Yataklarınızdaki toz akarlarını, alerjenleri ve lekeleri derinlemesine temizleyerek hijyeni artırıyor ve yatağınızın ömrünü uzatıyoruz. Hizmetimiz, daha temiz ve sağlıklı bir uyku ortamı sağlar.',
       icon: '🛏️',
-      image: '/images/mattress-cleaning.jpg',
+      image: `${process.env.PUBLIC_URL}/images/mattress-cleaning.jpg`,
       features: [
         'Yatak temizliği',
         'Şilte hijyenizasyonu',
@@ -105,7 +105,7 @@ const Services = () => {
       subtitle: 'Curtain Cleaning',
       description: 'Perdelerinizi yenileyin. Perdelerinizi özenle temizleyerek toz, kir ve lekeleri gideriyor, orijinal parlaklıklarını ve güzelliklerini geri kazandırıyoruz. Bu hizmet, evinizin temizliğini korumaya yardımcı olur ve pencere kaplamalarınızın ömrünü uzatır.',
       icon: '🪟',
-      image: '/images/curtain-cleaning.jpg',
+      image: `${process.env.PUBLIC_URL}/images/curtain-cleaning.jpg`,
       features: [
         'Tül perde temizliği',
         'Kadife perde bakımı',
@@ -129,7 +129,7 @@ const Services = () => {
       subtitle: 'Duvet Cleaning',
       description: 'Yorganlarınızı tertemiz tutun. Yorganlarınızı nazikçe temizleyip tazeleyerek kir, leke ve alerjenleri gideriyoruz. Hizmetimiz, yorganlarınızın yumuşak, konforlu ve hijyenik kalmasını sağlar, size dinlendirici ve temiz bir uyku deneyimi sunar.',
       icon: '🛌',
-      image: '/images/duvet-cleaning.jpg',
+      image: `${process.env.PUBLIC_URL}/images/duvet-cleaning.jpg`,
       features: [
         'Kaz tüyü yorgan temizliği',
         'Elyaf yorgan yıkama',
@@ -153,7 +153,7 @@ const Services = () => {
       subtitle: 'Blanket Cleaning',
       description: 'Battaniyelerinizin ömrünü uzatın. Battaniyelerinizi titizlikle temizleyerek toz, kir ve lekeleri gideriyoruz, tazeliklerini ve kabarıklıklarını koruyoruz. Hizmetimiz, battaniyelerinizin kalitesini korur ve onları yıllarca davetkar kılar.',
       icon: '🧸',
-      image: '/images/blanket-cleaning.jpg',
+      image: `${process.env.PUBLIC_URL}/images/blanket-cleaning.jpg`,
       features: [
         'Yün battaniye temizliği',
         'Pamuk battaniye yıkama',

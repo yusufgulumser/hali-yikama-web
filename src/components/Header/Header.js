@@ -34,7 +34,7 @@ const Header = () => {
         <nav className={styles.nav}>
           {/* Logo */}
           <Link to="/" className={styles.logo} onClick={closeMobileMenu}>
-            <img src="/images/logo.jpg" alt="Gülümser" className={styles.logoImage} />
+            <img src={`${process.env.PUBLIC_URL}/images/logo.jpg`} alt="Gülümser" className={styles.logoImage} />
             <span className={styles.logoText}>Gülümser</span>
           </Link>
 
