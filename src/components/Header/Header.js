@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 
@@ -20,15 +20,15 @@ const Header = () => {
   }, []);
 
   // Touch event handlers for swipe functionality
-  const handleTouchStart = (e) => {
+  const handleTouchStart = useCallback((e) => {
     touchStartRef.current = e.targetTouches[0].clientX;
-  };
+  }, []);
 
-  const handleTouchMove = (e) => {
+  const handleTouchMove = useCallback((e) => {
     touchEndRef.current = e.targetTouches[0].clientX;
-  };
+  }, []);
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = useCallback(() => {
     if (!touchStartRef.current || !touchEndRef.current) return;
     
     const distance = touchStartRef.current - touchEndRef.current;
@@ -36,14 +36,14 @@ const Header = () => {
     const isRightSwipe = distance < -50;
 
     if (isLeftSwipe && isMobileMenuOpen) {
-      closeMobileMenu();
+      setIsMobileMenuOpen(false);
     } else if (isRightSwipe && !isMobileMenuOpen) {
       setIsMobileMenuOpen(true);
     }
     
     touchStartRef.current = null;
     touchEndRef.current = null;
-  };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const mobileMenu = mobileMenuRef.current;
@@ -58,7 +58,7 @@ const Header = () => {
       mobileMenu.removeEventListener('touchmove', handleTouchMove);
       mobileMenu.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [isMobileMenuOpen]);
+  }, [handleTouchStart, handleTouchMove, handleTouchEnd]);
 
   const isActive = (path) => {
     return location.pathname === path;
