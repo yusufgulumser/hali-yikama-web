@@ -46,7 +46,7 @@ jobs:
           REACT_APP_EMAILJS_SERVICE_ID: ${{ secrets.REACT_APP_EMAILJS_SERVICE_ID }}
           REACT_APP_EMAILJS_TEMPLATE_ID: ${{ secrets.REACT_APP_EMAILJS_TEMPLATE_ID }}
           REACT_APP_EMAILJS_PUBLIC_KEY: ${{ secrets.REACT_APP_EMAILJS_PUBLIC_KEY }}
-          # Set homepage for GitHub Pages
+          # Set homepage for custom domain (will be updated when domain is added)
           PUBLIC_URL: /hali-yikama-web
         run: npm run build
         
