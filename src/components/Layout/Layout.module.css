@@ -1,0 +1,25 @@
+/* Layout Styles */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  padding-top: 80px; /* Header yüksekliği için space */
+  position: relative;
+}
+
+/* Header için responsive padding */
+@media (max-width: 768px) {
+  .main {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding-top: 65px;
+  }
+} 
