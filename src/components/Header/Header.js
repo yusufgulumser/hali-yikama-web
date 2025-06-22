@@ -61,7 +61,10 @@ const Header = () => {
   }, [handleTouchStart, handleTouchMove, handleTouchEnd]);
 
   const isActive = (path) => {
-    return location.pathname === path;
+    // GitHub Pages için basename'i hesaba kat
+    const basename = process.env.NODE_ENV === 'production' ? '/hali-yikama-web' : '';
+    const fullPath = basename + path;
+    return location.pathname === fullPath || (path === '/' && location.pathname === basename + '/');
   };
 
   const toggleMobileMenu = () => {
@@ -84,6 +87,14 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <ul className={styles.navLinks}>
+            <li>
+              <Link 
+                to="/" 
+                className={isActive('/') ? styles.active : ''}
+              >
+                Ana Sayfa
+              </Link>
+            </li>
             <li>
               <Link 
                 to="/services" 
@@ -165,6 +176,15 @@ const Header = () => {
             </button>
             
             <ul className={styles.mobileNavLinks}>
+              <li>
+                <Link 
+                  to="/" 
+                  className={isActive('/') ? styles.active : ''}
+                  onClick={closeMobileMenu}
+                >
+                  Ana Sayfa
+                </Link>
+              </li>
               <li>
                 <Link 
                   to="/services" 
