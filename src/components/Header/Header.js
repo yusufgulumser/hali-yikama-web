@@ -64,7 +64,18 @@ const Header = () => {
     // GitHub Pages için basename'i hesaba kat
     const basename = process.env.NODE_ENV === 'production' ? '/hali-yikama-web' : '';
     const fullPath = basename + path;
-    return location.pathname === fullPath || (path === '/' && location.pathname === basename + '/');
+    const isMatching = location.pathname === fullPath || (path === '/' && location.pathname === basename + '/');
+    
+    // Debug için console'a yazdır
+    console.log('isActive check:', {
+      path,
+      basename,
+      fullPath,
+      currentPathname: location.pathname,
+      isMatching
+    });
+    
+    return isMatching;
   };
 
   const toggleMobileMenu = () => {

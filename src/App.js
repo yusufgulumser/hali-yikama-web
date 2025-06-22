@@ -18,6 +18,11 @@ function App() {
   // GitHub Pages için basename (production)
   const basename = process.env.NODE_ENV === 'production' ? '/hali-yikama-web' : '';
   
+  // Debug için console'a yazdır
+  console.log('NODE_ENV:', process.env.NODE_ENV);
+  console.log('Basename:', basename);
+  console.log('Current pathname:', window.location.pathname);
+  
   return (
     <Router basename={basename}>
       <ScrollToTop />
