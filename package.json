@@ -1,7 +1,7 @@
 {
   "name": "hali-yikama-sitesi",
   "version": "0.1.0",
-  "homepage": "https://yusufgulumser.github.io/hali-yikama-web",
+  "homepage": "https://gulumserhaliyikama.com",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

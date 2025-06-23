@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Home from './pages/Home/Home';
@@ -15,11 +15,8 @@ const FAQ = () => <div style={{ padding: '2rem', textAlign: 'center', minHeight:
 const NotFound = () => <div style={{ padding: '2rem', textAlign: 'center', minHeight: '60vh' }}><h1>404 - Sayfa Bulunamadı</h1><p>Aradığınız sayfa mevcut değil.</p></div>;
 
 function App() {
-  // GitHub Pages için basename (production)
-  const basename = process.env.NODE_ENV === 'production' ? '/hali-yikama-web' : '';
-  
   return (
-    <Router basename={basename}>
+    <Router>
       <ScrollToTop />
       <Layout>
         <Routes>
