@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser';
 
-// EmailJS konfigürasyonu - .env.local dosyasından okunur
+// EmailJS konfigürasyonu - GitHub Secrets'lardan okunur (production) veya .env.local'dan (development)
 const EMAILJS_CONFIG = {
   serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID,
   templateId: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
